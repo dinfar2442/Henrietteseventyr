@@ -61,7 +61,6 @@ const backstory = `her er detaljer om Henriettes hus:
 `
 
 const openai = new OpenAI({
-	apiKey: "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",
     dangerouslyAllowBrowser: true
 })
 
