@@ -61,7 +61,7 @@ const backstory = `her er detaljer om Henriettes hus:
 `
 
 const openai = new OpenAI({
-	apiKey: "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",
+	apiKey: "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",
     dangerouslyAllowBrowser: true
 })
 
@@ -69,6 +69,7 @@ const input = useState("input", () => "")
 const output = useState("output", () => "")
 const messages = useState("messages", () => [])
 const points = useState("points", () => 0)
+const loading = useState("loading", () => false)
 
 messages.value = [
     { role: "system", content: backstory }
@@ -76,6 +77,7 @@ messages.value = [
 
 async function onClick(event) {
 	event.preventDefault()
+    loading.value = true
 	console.log(input.value)
     messages.value.push({
         role: "user", content: input.value
@@ -86,6 +88,7 @@ async function onClick(event) {
 	})
 	input.value = ""
     output.value = chatCompletion.choices[0].message.content
+    loading.value = false
 
     messages.value.push({
         role: "assistant", content: output.value
@@ -101,9 +104,12 @@ async function onClick(event) {
 
         <div id="user-input">
             <div class="background">
-                <div class="padding">
+                <div class="padding" v-if="!loading">
                     {{ output }}
-                </div>    
+                </div>
+                <div v-else>
+                    <Loading />
+                </div>
             </div>
 
             <form>
