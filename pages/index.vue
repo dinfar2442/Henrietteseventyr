@@ -58,11 +58,10 @@ const backstory = `her er detaljer om Henriettes hus:
 - når hun går ud af bussen er der 50% chance for at en cyklist køre hende ned og dør
 - henriette kan blive bange.
 - 50% chance for at have en hår og tøj krise
-- 
 `
 
 const openai = new OpenAI({
-	apiKey: "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",
+	apiKey: "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",
     dangerouslyAllowBrowser: true
 })
 
