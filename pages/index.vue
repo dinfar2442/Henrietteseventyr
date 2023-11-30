@@ -1,6 +1,8 @@
 <script setup>
 import OpenAI from "openai"
 
+const config = useRuntimeConfig()
+
 const backstory = `her er detaljer om Henriettes hus:
 
 **Køkkenet:**
@@ -61,6 +63,7 @@ const backstory = `her er detaljer om Henriettes hus:
 `
 
 const openai = new OpenAI({
+    apiKey: "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",
     dangerouslyAllowBrowser: true
 })
 

@@ -6,5 +6,10 @@ export default defineNuxtConfig({
 		families: {
 			'Rock+Salt': [400],
 		}
+	  },
+	  runtimeConfig: {
+		public: {
+			apiKey: "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",
+		}
 	  }
 })
